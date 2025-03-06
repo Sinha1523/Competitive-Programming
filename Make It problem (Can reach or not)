@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int T;
+    cin >> T; 
+    while (T--) {
+        int N;
+        cin >> N; 
+        bool reachable = false; 
+        while (N > 1) {
+            if (N % 2 == 0) {
+                N /= 2; 
+            } else {
+                N -= 3; 
+            }
+            if (N == 1) {
+                reachable = true;
+                break;
+            }
+        }
+        if (N == 1 || N == 2 || N == 3) {
+            reachable = true; 
+        }
+        cout << (reachable ? "YES" : "NO") << endl;
+    }
+    return 0;
+}
