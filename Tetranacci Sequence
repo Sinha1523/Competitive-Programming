@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> memo(31, -1);
+int Tetranacci(int n) {
+    if (n== 0) return 0; 
+    if (n== 1) return 1; 
+    if (n== 2) return 1; 
+    if (n== 3) return 2; 
+    if (memo[n] != -1) {
+        return memo[n];
+    }
+    memo[n] = Tetranacci(n - 1) + Tetranacci(n - 2) + Tetranacci(n - 3) + Tetranacci(n - 4);
+    return memo[n];
+}
+int main() {
+    int n;
+    cin >> n;
+    cout << Tetranacci(n) << endl;
+    return 0;
+}
+//for long long
+/* #include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int n;
+    cin >> n; 
+    vector<long long> T(n + 1); 
+    T[0]= 0;
+    T[1]= 1;
+    T[2]= 1;
+    T[3]= 2;
+    for (int i = 4; i <= n; i++) {
+        T[i] = T[i - 1] + T[i - 2] + T[i - 3] + T[i - 4];
+    }
+    cout << T[n] << endl;
+    
+    return 0;
+} */
+
