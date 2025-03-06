@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int T;
+    cin >> T; 
+    cin.ignore(); 
+    vector<string> results;
+    for (int i = 0; i < T; i++) {
+    string line;
+    getline(cin, line);
+        size_t space_pos = line.find(" ");
+        string S1 = line.substr(0, space_pos);
+        string S2 = line.substr(space_pos + 1);
+        if (S1.length() != S2.length()) {
+            results.push_back("NO");
+            continue;
+        }
+        unordered_map<char, int> freq;
+        for (char c : S1) {
+            freq[c]++;
+        }
+        for (char c : S2) {
+            freq[c]--;
+        }
+        bool isAnagram = true;
+        for (auto count : freq) {
+            if (count.second != 0) {
+                isAnagram = false;
+                break;
+            }
+        }
+        if (isAnagram) {
+            results.push_back("YES");
+        } else {
+            results.push_back("NO");
+        }
+    }
+    for (const string& result : results) {
+        cout << result << endl;
+    }
+
+    return 0;
+}
