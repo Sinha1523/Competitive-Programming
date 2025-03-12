@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;  
+    vector<int> a(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
+    }
+    sort(a.rbegin(), a.rend());
+    int maxBalls = 0;            
+    int lastTakenCount = INT_MAX; 
+    for (int i = 0; i < n; ++i) {
+        int toTake = min(a[i], lastTakenCount);
+        if (toTake > 0) {
+            maxBalls += toTake;
+            lastTakenCount = toTake - 1; 
+        } else {
+            break; 
+        }
+    }
+    cout << maxBalls << endl; 
+    return 0;
+}
