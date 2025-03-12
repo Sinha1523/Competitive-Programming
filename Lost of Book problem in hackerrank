@@ -1,0 +1,24 @@
+#include <iostream>
+#include <set>
+#include <string>
+using namespace std;
+
+int main() {
+    string S;
+    cin >> S; // Read the input string
+    
+    set<char> uniqueLetters; // Declare a set to store unique letters
+    
+    // Insert each character from the string into the set
+    for (char c : S) {
+        uniqueLetters.insert(c);
+    }
+    
+    // Output the unique letters in sorted order
+    for (char c : uniqueLetters) {
+        cout << c;
+    }
+    cout << endl; // Print a newline after output
+    
+    return 0;
+}
