@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int T;
+    cin >> T;
+    if (T < 0 || T < 3) {
+        cout << "NO" << endl;
+        return 0;
+    }
+    for (int y = 0; y * 4 <= T; y++) {
+        if ((T - 4 * y) % 3 == 0) {
+            cout << "YES" << endl;
+            return 0; 
+        }
+    }
+    cout << "NO" << endl; 
+    return 0;
+}
