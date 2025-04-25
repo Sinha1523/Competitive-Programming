@@ -1,0 +1,41 @@
+//week 4 XPSC CLUB
+//https://www.codechef.com/problems/INVEQ
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int cnt(string& s, char ch) {
+    int r1 = 0;
+    int n = s.length();
+    for (int i = 0; i < n;) {
+        if (s[i] == ch) {
+            r1++;
+            while (i < n && s[i] == ch)
+                i++;
+        } else {
+            i++;
+        }
+    }
+    return r1;
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
+    int T;
+    cin >> T;
+
+    while (T--) {
+        int N;
+        string S;
+        cin >> N >> S;
+
+        int ans1 = cnt(S, '0');
+        int ans2 = cnt(S, '1');
+
+        cout << min(ans1, ans2) << endl;
+    }
+
+    return 0;
+}
